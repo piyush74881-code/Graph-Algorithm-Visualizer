@@ -1,0 +1,113 @@
+.node {
+    width: 20px;
+    height: 20px;
+    border: 1px solid lightgray;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.node-start {
+    background-color: green;
+    border-radius: 4px;
+}
+
+.node-finish {
+    background-color: red;
+    border-radius: 4px;
+}
+
+.node-wall {
+    background-color: black;
+    animation: wallGrow 0.3s ease-in;
+}
+
+.node-visited {
+    background-color: #00bfff;
+    transition: background-color 0.2s ease;
+    animation: visitFade 0.4s ease-in, nodeBounce 0.3s ease-out;
+}
+
+.node-shortest-path {
+    background-color: yellow;
+    transition: background-color 0.2s ease;
+    animation: pathFade 0.3s ease-in, glow 1s ease-in-out infinite alternate;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-row {
+    display: flex;
+}
+
+.visualize-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.visualize-btn:hover {
+    background-color: #45a049;
+}
+
+/* Wall grow animation */
+@keyframes wallGrow {
+    0% {
+        transform: scale(0.3);
+        opacity: 0.2;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Visit fade animation */
+@keyframes visitFade {
+    0% {
+        background-color: white;
+    }
+    100% {
+        background-color: #00bfff;
+    }
+}
+
+/* Path fade animation */
+@keyframes pathFade {
+    0% {
+        background-color: white;
+    }
+    100% {
+        background-color: #ffd700;
+    }
+}
+
+/* Bounce effect for visited node */
+@keyframes nodeBounce {
+    0% {
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Glow effect for shortest path */
+@keyframes glow {
+    from {
+        box-shadow: 0 0 2px #ffd700;
+    }
+    to {
+        box-shadow: 0 0 10px #ffeb3b;
+    }
+}
